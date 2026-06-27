@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Flip Bottle Run — A hyper-casual physics bottle flipping game">
+    <meta name="theme-color" content="#0f0c29">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Flip Bottle Run</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <!-- Game Canvas -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- ======== MENU SCREEN ======== -->
+    <div id="menuScreen" class="screen active">
+        <div class="menu-title">Flip Bottle<br>Run</div>
+        <div class="menu-subtitle">Tap to flip — Land upright to survive!</div>
+        <div id="bestScore">🏆 Best: 0</div>
+        <div id="menuCoins">🪙 0</div>
+        <button id="btnPlay" class="btn btn-play">▶ Play</button>
+        <button id="btnShop" class="btn btn-shop">🛒 Shop</button>
+    </div>
+
+    <!-- ======== GAME HUD SCREEN ======== -->
+    <div id="gameScreen" class="screen">
+        <div class="hud-top">
+            <button id="btnPause" class="btn-icon">⏸</button>
+            <button id="btnSound" class="btn-icon">🔊</button>
+        </div>
+    </div>
+
+    <!-- ======== GAME OVER SCREEN ======== -->
+    <div id="gameOverScreen" class="screen">
+        <div class="go-title">Game Over</div>
+        <div id="goScore">Score: 0</div>
+        <div id="goCoins">Coins Earned: +0</div>
+        <div id="goBest">🏆 Best: 0</div>
+        <div class="go-buttons">
+            <button id="btnRestart" class="btn btn-restart">↻ Restart</button>
+            <button id="btnMenu" class="btn btn-back">🏠 Menu</button>
+        </div>
+    </div>
+
+    <!-- ======== SHOP SCREEN ======== -->
+    <div id="shopScreen" class="screen">
+        <div class="shop-header">🛒 Shop</div>
+        <div id="shopCoins">🪙 0</div>
+        <div id="shopItems" class="shop-grid"></div>
+        <button id="btnShopBack" class="btn btn-back" style="margin-top:12px">← Back</button>
+    </div>
+
+    <!-- ======== PAUSE OVERLAY ======== -->
+    <div id="pauseOverlay">
+        <div class="pause-title">⏸ Paused</div>
+        <button id="btnResume" class="btn btn-play">▶ Resume</button>
+        <button id="btnPauseRestart" class="btn btn-restart" style="margin-top:10px">↻ Restart</button>
+    </div>
+
+    <!-- Scripts: storage → physics → game → ui → shop → init -->
+    <script src="storage.js"></script>
+    <script src="physics.js"></script>
+    <script src="game.js"></script>
+    <script src="ui.js"></script>
+    <script src="shop.js"></script>
+    <script>
+        // DOM is ready (scripts are at bottom of body)
+        UI.init();
+        Game.init();
+    </script>
+
+</body>
+
+</html>
